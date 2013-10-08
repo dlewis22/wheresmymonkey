@@ -1,7 +1,6 @@
 <!doctype html>   
 	<head>   
 		<meta charset="utf-8">
-
 		<!-- the title tag should be 60 characters or less -->  
 		<title>wheresmymonkey.com</title>
 		<!-- meta description must be limited to 160 characters or less -->
@@ -13,9 +12,14 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		
+		<!-- My CSS -->
+		<link rel="stylesheet" href="css/wheresmymonkey.css" />
+
 	</head>
 	<body>
-		<div data-role="page">
+		<!-- Home -->
+		<div data-role="page" id="home">
 			<div data-role="header" data-position="fixed">
 				<h1>wheresmymonkey</h1>
 			</div>
@@ -27,13 +31,235 @@
 			<div data-role="footer" data-id="foo1" data-position="fixed">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="a.html">home</a></li>
-						<li><a href="b.html">account</a></li>
-						<li><a href="c.html">settings</a></li>
-						<li><a href="d.html">exit</a></li>
+						<li><a href="#home">home</a></li>
+						<li><a href="#account">account</a></li>
+						<li><a href="#settings">settings</a></li>
+						<li><a href="#about">about</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
+		
+		<!-- Account -->
+		<div data-role="page" id="account">
+			<div data-role="header" data-position="fixed">
+				<h1>Account</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					Account Page
+				</p>
+			</div>
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home">home</a></li>
+						<li><a href="#account">account</a></li>
+						<li><a href="#settings">settings</a></li>
+						<li><a href="#about">about</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Settings -->
+		<div data-role="page" id="settings">
+			<div data-role="header" data-position="fixed">
+				<h1>Settings</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					Settings Page
+				</p>
+			</div>
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home">home</a></li>
+						<li><a href="#account">account</a></li>
+						<li><a href="#settings">settings</a></li>
+						<li><a href="#about">about</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- About -->
+		<div data-role="page" id="about">
+			<div data-role="header" data-position="fixed">
+				<h1>About</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					About Wheresmymonkey
+				</p>
+				<p>
+					<a href="#dialog" data-rel="dialog" data-transition="pop">Open dialog</a>
+				</p>
+			</div>
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home">home</a></li>
+						<li><a href="#account">account</a></li>
+						<li><a href="#settings">settings</a></li>
+						<li><a href="#about">about</a></li>
+						<li><a href="#keno">keno</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Keno Game -->
+		<div data-role="page" id="keno">
+			<div data-role="content">
+				<div class="gmWrap">
+					<div id="gmCard1" class="gmCard">
+						<div class="gmRow">
+							<div id="gmNbr1" class="gmNbr">1</div>
+							<div id="gmNbr2" class="gmNbr">2</div>
+							<div id="gmNbr3" class="gmNbr">3</div>
+							<div id="gmNbr4" class="gmNbr">4</div>
+							<div id="gmNbr5" class="gmNbr">5</div>
+							<div id="gmNbr6" class="gmNbr">6</div>
+							<div id="gmNbr7" class="gmNbr">7</div>
+							<div id="gmNbr8" class="gmNbr">8</div>
+							<div id="gmNbr9" class="gmNbr">9</div>
+							<div id="gmNbr10" class="gmNbr">10</div>
+						</div>
+						<div class="gmRow">
+							<div id="gmNbr11" class="gmNbr">11</div>
+							<div id="gmNbr12" class="gmNbr">12</div>
+							<div id="gmNbr13" class="gmNbr">13</div>
+							<div id="gmNbr14" class="gmNbr">14</div>
+							<div id="gmNbr15" class="gmNbr">15</div>
+							<div id="gmNbr16" class="gmNbr">16</div>
+							<div id="gmNbr17" class="gmNbr">17</div>
+							<div id="gmNbr18" class="gmNbr">18</div>
+							<div id="gmNbr19" class="gmNbr">19</div>
+							<div id="gmNbr20" class="gmNbr">20</div>
+						</div>
+						<div class="gmRow">
+							<div id="gmNbr21" class="gmNbr">21</div>
+							<div id="gmNbr22" class="gmNbr">22</div>
+							<div id="gmNbr23" class="gmNbr">23</div>
+							<div id="gmNbr24" class="gmNbr">24</div>
+							<div id="gmNbr25" class="gmNbr">25</div>
+							<div id="gmNbr26" class="gmNbr">26</div>
+							<div id="gmNbr27" class="gmNbr">27</div>
+							<div id="gmNbr28" class="gmNbr">28</div>
+							<div id="gmNbr29" class="gmNbr">29</div>
+							<div id="gmNbr30" class="gmNbr">30</div>
+						</div>
+						<div class="gmRow">
+							<div id="gmNbr31" class="gmNbr">31</div>
+							<div id="gmNbr32" class="gmNbr">32</div>
+							<div id="gmNbr33" class="gmNbr">33</div>
+							<div id="gmNbr34" class="gmNbr">34</div>
+							<div id="gmNbr35" class="gmNbr">35</div>
+							<div id="gmNbr36" class="gmNbr">36</div>
+							<div id="gmNbr37" class="gmNbr">37</div>
+							<div id="gmNbr38" class="gmNbr">38</div>
+							<div id="gmNbr39" class="gmNbr">39</div>
+							<div id="gmNbr40" class="gmNbr">40</div>
+						</div>
+					</div>
+						
+					<div class="gameMessage">
+						<div id="completeMsg">
+							Drawing Game...
+						</div>
+					</div>
+						
+					<div id="gmCard2" class="gmCard">
+						<div class="gmRow">
+							<div id="gmNbr41" class="gmNbr">41</div>
+							<div id="gmNbr42" class="gmNbr">42</div>
+							<div id="gmNbr43" class="gmNbr">43</div>
+							<div id="gmNbr44" class="gmNbr">44</div>
+							<div id="gmNbr45" class="gmNbr">45</div>
+							<div id="gmNbr46" class="gmNbr">46</div>
+							<div id="gmNbr47" class="gmNbr">47</div>
+							<div id="gmNbr48" class="gmNbr">48</div>
+							<div id="gmNbr49" class="gmNbr">49</div>
+							<div id="gmNbr50" class="gmNbr">50</div>
+						</div>
+						<div class="gmRow">
+							<div id="gmNbr51" class="gmNbr">51</div>
+							<div id="gmNbr52" class="gmNbr">52</div>
+							<div id="gmNbr53" class="gmNbr">53</div>
+							<div id="gmNbr54" class="gmNbr">54</div>
+							<div id="gmNbr55" class="gmNbr">55</div>
+							<div id="gmNbr56" class="gmNbr">56</div>
+							<div id="gmNbr57" class="gmNbr">57</div>
+							<div id="gmNbr58" class="gmNbr">58</div>
+							<div id="gmNbr59" class="gmNbr">59</div>
+							<div id="gmNbr60" class="gmNbr">60</div>
+						</div>
+						<div class="gmRow">
+							<div id="gmNbr61" class="gmNbr">61</div>
+							<div id="gmNbr62" class="gmNbr">62</div>
+							<div id="gmNbr63" class="gmNbr">63</div>
+							<div id="gmNbr64" class="gmNbr">64</div>
+							<div id="gmNbr65" class="gmNbr">65</div>
+							<div id="gmNbr66" class="gmNbr">66</div>
+							<div id="gmNbr67" class="gmNbr">67</div>
+							<div id="gmNbr68" class="gmNbr">68</div>
+							<div id="gmNbr69" class="gmNbr">69</div>
+							<div id="gmNbr70" class="gmNbr">70</div>
+						</div>
+						<div class="gmRow">
+							<div id="gmNbr71" class="gmNbr">71</div>
+							<div id="gmNbr72" class="gmNbr">72</div>
+							<div id="gmNbr73" class="gmNbr">73</div>
+							<div id="gmNbr74" class="gmNbr">74</div>
+							<div id="gmNbr75" class="gmNbr">75</div>
+							<div id="gmNbr76" class="gmNbr">76</div>
+							<div id="gmNbr77" class="gmNbr">77</div>
+							<div id="gmNbr78" class="gmNbr">78</div>
+							<div id="gmNbr79" class="gmNbr">79</div>
+							<div id="gmNbr80" class="gmNbr">80</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Dialog -->
+		<div data-role="page" id="dialog" data-close-btn="none">
+			<div data-role="header" data-position="fixed">
+				<h1>Dialog</h1>
+			</div>
+			<div data-role="content">
+				<p>
+					This is a dialog window
+				</p>
+				<a href="#" data-role="button" data-inline="true" data-rel="back">OK</a>
+				<a href="#" data-role="button" data-inline="true" data-rel="back">Cancel</a>
+			</div>
+		</div>
+		
+		<!-- Keno script -->
+		<script>
+			var gmNbr = [5,7,20,38,52,18,72,69,77,10,14];
+			var index = 0;
+			function drawComplete() {
+				document.getElementById('completeMsg').innerHTML = 'Game Complete';
+				return false;
+			}
+			function showNum() {
+				var card = document.getElementById ("gmNbr" + gmNbr[index]);
+				card.className = "gmNbr gmNbrOn";
+				index = index + 1;
+				if( index < gmNbr.length )
+					setTimeout(function(){showNum()},1000);
+				else
+					drawComplete();
+				return false;
+			}
+
+			showNum();
+
+		</script>
 	</body>   
 </html>
