@@ -1,0 +1,71 @@
+/* Keno Game all classes for the game have the gm(game) prefix */
+.gmWrap {
+	width:100%;
+	height:100%;
+	background-color:#000000;
+}
+
+.gmLogo {
+	height:150px;
+	margin:2em 0px 0px 0px;
+}
+
+.gmDrawNbr {
+	margin:1em;
+	text-align:center;
+	font-size:1.2em;
+	font-weight:bold;
+}
+
+.gmLogoXpertX {
+	position:absolute;
+	bottom:10px;
+	left:0px;
+	width:100%;
+	height:48px;
+	background-image:url(/m/img/logoXpertXblk.png);
+	background-repeat:no-repeat;
+	background-position:center center;
+}
+
+.gmCard {
+	display:inline-block;
+	text-align:center;
+	border:solid #c1c1c1;
+	border-width: 1px 0px 0px 1px;
+	background-color:#999999;
+}
+
+#gmCard1 {
+	margin:2em 2em 0px 2em;
+}
+
+#gmCard2 {
+	margin:0px 2em 2em 2em;
+}
+
+.gmCardRow {
+}
+
+.gmNbr {
+	display:inline-block;
+	width:1.5em;
+	line-height:1.5em;
+	font-size:1.3em;
+	font-weight:bold;
+	text-align:center;
+	border:solid #c1c1c1;
+	border-width:0px 1px 1px 0px;
+}
+
+.gmNbrOn {
+	background-color:#ff0000;
+}
+
+.gameMessage {
+	width: 400px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+}
