@@ -116,7 +116,7 @@
 		<!-- Keno Game -->
 		<div data-role="page" id="keno">
 			<div data-role="header" data-position="fixed">
-				<h1>About</h1>
+				<h1>Keno</h1>
 			</div>
 			<div data-role="content">
 				<div class="gmWrap">
@@ -258,25 +258,32 @@
 		
 		<!-- Keno script -->
 		<script>
-			var gmNbr = [6,9,20,38,52,18,72,69,77,10,14];
+			var gmNbr = [12,22,29,38,52,18,72,69,77,10,14];
 			var index = 0;
+			
 			function drawComplete() {
 				document.getElementById('completeMsg').innerHTML = 'Game Complete';
 				return false;
 			}
-			function showNum() {
-				var card = document.getElementById ("gmNbr" + gmNbr[index]);
-				card.className = "gmNbr gmNbrOn";
-				index = index + 1;
-				if( index < gmNbr.length )
-					setTimeout(function(){showNum()},1000);
-				else
-					drawComplete();
-				return false;
-			}
-
-			showNum();
-
+			
+			$(document).ready(function(){
+				setTimeout(function() {
+					function showNum() {
+						var card = document.getElementById ("gmNbr" + gmNbr[index]);
+						card.className = "gmNbr gmNbrOn";
+						index = index + 1;
+						if( index < gmNbr.length )
+							setTimeout(function(){showNum()},1000);
+						else
+							drawComplete();
+						return false;
+					}
+					
+				showNum();
+					
+				},4000);
+			});
 		</script>
+
 	</body>   
 </html>
