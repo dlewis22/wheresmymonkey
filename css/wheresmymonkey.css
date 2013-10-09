@@ -23,21 +23,21 @@
 }
 
 #gmCard1 {
-	margin:2em 2em 0px 2em;
+	margin:1.5em 1.5em 0px 1.5em;
 }
 
 #gmCard2 {
-	margin:0px 2em 2em 2em;
+	margin:0px 1.5em 1.5em 1.5em;
 }
 
-.gmCardRow {
+.gmRow {
 	white-space:nowrap;
 }
 
 .gmNbr {
 	float:left;
-	width:30px;
-	line-height:30px;
+	width:20px;
+	line-height:20px;
 	font-size:12px;
 	text-align:center;
 	border:solid #ffffff;
@@ -50,8 +50,8 @@
 }
 
 .gameMessage {
-	margin:0px 2em;
-	width:312px; /* 30 * 10 + 12 (1px borders) = */
+	margin:0px 1.5em;
+	width:212px; /* 20 * 10 + 12 (1px borders) = */
 	line-height:2em;
 	text-align:center;
 	font-weight:bold;
