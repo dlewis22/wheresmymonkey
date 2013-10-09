@@ -1,3 +1,13 @@
+/* Fixes flashing screen on transitions */
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
+
+.ui-body-c, .ui-overlay-c {
+	font-family:verdana;
+	text-shadow:0px 0px;
+}
+
 /* Keno Game all classes for the game have the gm(game) prefix */
 .gmWrap {
 	width:100%;
@@ -5,35 +15,11 @@
 	background-color:#000000;
 }
 
-.gmLogo {
-	height:150px;
-	margin:2em 0px 0px 0px;
-}
-
-.gmDrawNbr {
-	margin:1em;
-	text-align:center;
-	font-size:1.2em;
-	font-weight:bold;
-}
-
-.gmLogoXpertX {
-	position:absolute;
-	bottom:10px;
-	left:0px;
-	width:100%;
-	height:48px;
-	background-image:url(/m/img/logoXpertXblk.png);
-	background-repeat:no-repeat;
-	background-position:center center;
-}
-
 .gmCard {
 	display:inline-block;
 	text-align:center;
 	border:solid #c1c1c1;
 	border-width: 1px 0px 0px 1px;
-	background-color:#999999;
 }
 
 #gmCard1 {
@@ -45,17 +31,18 @@
 }
 
 .gmCardRow {
+	white-space:nowrap;
 }
 
 .gmNbr {
-	display:inline-block;
-	width:1.5em;
-	line-height:1.5em;
-	font-size:1.3em;
-	font-weight:bold;
+	float:left;
+	width:30px;
+	line-height:30px;
+	font-size:12px;
 	text-align:center;
-	border:solid #c1c1c1;
+	border:solid #ffffff;
 	border-width:0px 1px 1px 0px;
+	color:#ffffff;
 }
 
 .gmNbrOn {
@@ -63,9 +50,10 @@
 }
 
 .gameMessage {
-	width: 400px;
-	line-height: 80px;
-	text-align: center;
-	font-size: 2em;
-	font-weight: bold;
+	margin:0px 2em;
+	width:312px; /* 30 * 10 + 12 (1px borders) = */
+	line-height:2em;
+	text-align:center;
+	font-weight:bold;
+	color:#ffffff;
 }
