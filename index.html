@@ -20,9 +20,7 @@
 				$('#login').facebook_login({
 					appId: '61553152672',							// your facebook application id
 					endpoint: 'sessions/new',						// where to POST the response to
-					onSuccess: function(data) {						// what to do on success, usually redirect
-						$( "login" ).hide();
-					},
+					onSuccess: function(data) {alert("Success");},	// what to do on success
 					onError: function(data) {alert("Failed");},		// what to do on error
 					permissions: 'read_stream'						// what permissions you need, default is just email
 				});
