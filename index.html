@@ -271,10 +271,11 @@
 			/* 
 				Why we need to use pageinit instead of $(document).ready
 				http://stackoverflow.com/questions/14468659/jquery-mobile-document-ready-vs-page-events
+				http://jquerymobile.com/demos/1.2.0/docs/api/events.html
 			*/
 			
 			/* If you include the id of a "page" in the pageinit, it will only run the script when the "page" is active */
-			$('#keno').on('pageinit') {
+			$(document).bind('pageinit') {
 			// $( document ).ready(function() {
 
 				/* Keno page */
