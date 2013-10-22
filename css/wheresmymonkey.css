@@ -1,6 +1,6 @@
 /* Fixes flashing screen on transitions - but may also cause the app to crash */
 .ui-page {
-   -webkit-backface-visibility: hidden;
+   /* -webkit-backface-visibility: hidden; */
 }
 
 .ui-body-c, .ui-overlay-c {
