@@ -20,17 +20,15 @@ $(function() {
 
 /* 
 	Why we need to use pageinit instead of $(document).ready
-	http://stackoverflow.com/questions/14468659/jquery-mobile-document-ready-vs-page-events
-	http://jquerymobile.com/demos/1.2.0/docs/api/events.html
+	http://stackoverflow.com/questions/14468659/jquery-mobile-document-ready-vs-page-events and http://jquerymobile.com/demos/1.2.0/docs/api/events.html
 */
 
 /* If you include the id of a "page" in the pageinit, it will only run the script when the "page" is active */
 // $(document).bind('pageinit') {
 // alert ("pageinit complete");
-// $( document ).ready(function() {
+// $( document ).ready(function() {  // Used for websites other than mmobile
 
 $( document ).on( "pageinit", "#keno", function( event ) {
-	// alert( "Keno Page" );
 	/* Keno page */
 	var gmNbr = [12,22,29,38,52,18,72,69,77,10,14];
 	var index = 0;
@@ -54,13 +52,12 @@ $( document ).on( "pageinit", "#keno", function( event ) {
 
 // Ajax request for dynamic content
 $( document ).on( "pageinit", "#home", function( event ) {
-	// alert( "Home Page" );
+	var siteURL = $(location).attr('href');
 	$.ajax({
-		url: "http://www.wheresmymonkey.com/pages/home.html",
+		url: siteURL + "/pages/home.html",
 		cache: false
 	})
 	.done(function( html ) {
 		$( "#homeContent" ).append( html );
 	}); 
-	
 });
