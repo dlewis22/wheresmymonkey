@@ -8,6 +8,12 @@
 	text-shadow:0px 0px;
 }
 
+.body {
+	z-index:2147483647 !important;
+	border:2px solid #ff0000;
+	background:#ff0000;
+}
+
 /* Keno Game all classes for the game have the gm(game) prefix */
 #keno .ui-content {
 	padding:0px 0px;
