@@ -11,10 +11,11 @@
 		<!-- jQuery Mobile -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 		
-		<!-- Other plugins / custtom js -->
-		<script type="text/javascript" src="js/flogin.js"></script>
+		<!-- Other plugins / custom js -->
+		<!-- <script type="text/javascript" src="js/flogin.js"></script> -->
 		<script type="text/javascript" src="js/wheresmymonkey.js"></script>
 
 		<!-- My CSS -->
@@ -22,6 +23,50 @@
 		
 	</head>
 	<body>
+		<div id="fb-root"></div>
+		<script type="text/javascript">
+			window.fbAsyncInit = function() {
+				// init the FB JS SDK
+				FB.init({
+					appId      : '61553152672',                        		// App ID from the app dashboard
+					channelUrl : '//www.wheresmymonkey.com/channel.html',	// Channel file for x-domain comms
+					status     : true,                                 		// Check Facebook Login status
+					xfbml      : true                                  		// Look for social plugins on the page
+				});
+
+				// Additional initialization code such as adding Event Listeners goes here
+				FB.getLoginStatus(function(response) {
+					if (response.status === 'connected') {
+						$('#fbStatus').text('You are connected'); 
+						// the user is logged in and has authenticated your
+						// app, and response.authResponse supplies
+						// the user's ID, a valid access token, a signed
+						// request, and the time the access token 
+						// and signed request each expire
+						var uid = response.authResponse.userID;
+						var accessToken = response.authResponse.accessToken;
+					} else if (response.status === 'not_authorized') {
+						$('#fbStatus').text('You are not authorized');
+						// the user is logged in to Facebook, 
+						// but has not authenticated your app
+					} else {
+						// the user isn't logged in to Facebook.
+						$('#fbStatus').text('You are not Logged In');
+					}
+				});
+			};
+
+			// Load the SDK asynchronously
+			(function(d, s, id){
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) {return;}
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	   
+		</script>
+		
 		<!-- Home -->
 		<div data-role="page" id="home">
 			<div data-role="header" data-position="fixed">
@@ -42,30 +87,8 @@
 						<li><a href="#home" data-transition="slidefade">home</a></li>
 						<li><a href="#keno" data-transition="slidefade">keno</a></li>
 						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-
-		<!-- About -->
-		<div data-role="page" id="about">
-			<div data-role="header" data-position="fixed">
-				<h1>About</h1>
-			</div>
-			<div data-role="content">
-				<p>
-					About Wheresmymonkey
-				</p>
-				<p>
-					<a href="#dialog" data-rel="dialog" data-transition="pop">Open dialog</a>
-				</p>
-			</div>
-			<div data-role="footer" data-id="foo1" data-position="fixed">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#home" data-transition="slidefade">home</a></li>
-						<li><a href="#keno" data-transition="slidefade">keno</a></li>
-						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
+						<li><a href="#geolocation" data-transition="slidefade">geo</a></li>
+						<li><a href="#randomQuote" data-transition="slidefade">rqg</a></li>
 					</ul>
 				</div>
 			</div>
@@ -193,6 +216,8 @@
 						<li><a href="#home" data-transition="slidefade">home</a></li>
 						<li><a href="#keno" data-transition="slidefade">keno</a></li>
 						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
+						<li><a href="#geolocation" data-transition="slidefade">geo</a></li>
+						<li><a href="#randomQuote" data-transition="slidefade">rqg</a></li>
 					</ul>
 				</div>
 			</div>
@@ -204,24 +229,14 @@
 				<h1>Facebook API Integration</h1>
 			</div>
 			<div data-role="content">
-				<!-- Facebook Login-->
 				<p>
-					Facebook Login<br />
-					<a href="#" id="login">Login with Facebook</a>
-					<a href="#" id="logout" style="display:none">Logout of Facebook</a>
+					<span id="fbStatus">Facebook Status</span>
 				</p>
-				
-				<!-- Facebook Activity -->
-				<p>
-					Activity<br />
-					<div class="fb-activity" data-app-id="61553152672" data-site="developers.facebook.com" data-action="likes, recommends" data-width="The pixel width of the plugin. Defaults to 300px" data-height="The pixel height of the plugin. Defaults to 300px" data-colorscheme="light" data-header="true"></div>
-				</p>
-					
-				<!-- Facebook Like -->
+				<!-- Facebook Like
 				<p>
 					Like<br />
-					<div class="fb-like" data-href="http://www.wheresmymonkey.com" data-width="The pixel width of the plugin" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
-				</p>
+					<div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+				</p> -->
 			</div>
 			<div data-role="footer" data-id="foo1" data-position="fixed">
 				<div data-role="navbar">
@@ -229,11 +244,78 @@
 						<li><a href="#home" data-transition="slidefade">home</a></li>
 						<li><a href="#keno" data-transition="slidefade">keno</a></li>
 						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
+						<li><a href="#geolocation" data-transition="slidefade">geo</a></li>
+						<li><a href="#randomQuote" data-transition="slidefade">rqg</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
 		
+		<!-- Geolocation -->
+		<div data-role="page" id="geolocation">
+			<div data-role="header">
+				<h1>Geolocation</h1>
+			</div>
+
+			<div data-role="content">
+				<span> Latitude : </span> <input type="text" id="lat" />
+				<span> Longitude : </span> <input type="text" id="lng" />
+				<a data-role="button" id="btnMap">Display map</a>
+			</div>
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-transition="slidefade">home</a></li>
+						<li><a href="#keno" data-transition="slidefade">keno</a></li>
+						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
+						<li><a href="#geolocation" data-transition="slidefade">geo</a></li>
+						<li><a href="#randomQuote" data-transition="slidefade">rqg</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="map" data-add-back-btn="true">
+			<div data-role="header">
+				<h1>Map</h1>
+			</div>
+			<div data-role="content"></div>
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-transition="slidefade">home</a></li>
+						<li><a href="#keno" data-transition="slidefade">keno</a></li>
+						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
+						<li><a href="#geolocation" data-transition="slidefade">geo</a></li>
+						<li><a href="#randomQuote" data-transition="slidefade">rqg</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Random Quote Generator - rqg -->
+		<div data-role="page" id="randomQuote">
+			<div data-role="header">
+				<h1>Random Quote Generator</h1>
+			</div>
+
+			<div data-role="content">
+				And the random quote is:<br />
+				<span id="quote"></span>
+			</div>
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#home" data-transition="slidefade">home</a></li>
+						<li><a href="#keno" data-transition="slidefade">keno</a></li>
+						<li><a href="#facebook" data-transition="slidefade">fb</a></li>
+						<li><a href="#geolocation" data-transition="slidefade">geo</a></li>
+						<li><a href="#randomQuote" data-transition="slidefade">rqg</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
 		<!-- Dialog -->
 		<div data-role="dialog" id="dialog" data-close-btn="none">
 			<div data-role="header" data-position="fixed">
