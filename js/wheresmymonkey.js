@@ -30,7 +30,7 @@ $(function() {
 // alert ("pageinit complete");
 // $( document ).ready(function() {  // Used for websites other than mmobile
 
-$( document ).bind( "pageinit", "#keno", function( event ) {
+$( document ).on( "pageinit", "#keno", function( event ) {
 	/* Keno page */
 	var gmNbr = [12,22,29,38,52,18,72,69,77,10,14];
 	var index = 0;
@@ -53,7 +53,7 @@ $( document ).bind( "pageinit", "#keno", function( event ) {
 });
 
 // Ajax request for dynamic content
-$( document ).bind( "pageinit", "#home", function( event ) {
+$( document ).on( "pageinit", "#home", function( event ) {
 	var siteURL = $(location).attr('href');
 	$.ajax({
 		url: siteURL + "/pages/home.html",
@@ -65,7 +65,7 @@ $( document ).bind( "pageinit", "#home", function( event ) {
 });
 
 // Geolocation - http://the-jquerymobile-tutorial.org/jquery-mobile-tutorial-CH23.php
-$( document ).bind( "pageinit", "#geolocation", function( event ) {
+$( document ).on( "pageinit", "#geolocation", function( event ) {
 	navigator.geolocation.getCurrentPosition (function (pos)
 	{
 		var lat = pos.coords.latitude;
@@ -98,7 +98,7 @@ $( document ).bind( "pageinit", "#geolocation", function( event ) {
 });
 
 // Random Excuse Generator
-$( document ).bind( "pageinit", "#randomQuote", function( event ) {
+$( document ).on( "pageinit", "#randomQuote", function( event ) {
 	var myRandom = Math.floor((Math.random()*9)+1);
 	alert("huh" + myRandom);
 	var myQuotes = [];
