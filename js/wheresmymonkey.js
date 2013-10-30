@@ -1,25 +1,3 @@
-<!-- flogin - http://garyrafferty.com/flogin/ -->
-/*
-$(function() {
-	$('#login').facebook_login({
-		appId: '61553152672',							// your facebook application id
-		endpoint: 'sessions/new',						// where to POST the response to
-		onSuccess: function(data) {alert("Success");},	// what to do on success
-		onError: function(data) {alert("Failed");},		// what to do on error
-		permissions: 'read_stream'						// what permissions you need, default is just email
-	});
-});
-
-<!-- Activity - https://developers.facebook.com/docs/plugins/activity/ -->
-(function(d, s, id) {
-	var js, fjs = d.getElementsByTagName(s)[0];
-	if (d.getElementById(id)) return;
-	js = d.createElement(s); js.id = id;
-	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=61553152672";
-	fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-*/
-
 /* 
 	Why we need to use pageinit instead of $(document).ready
 	http://stackoverflow.com/questions/14468659/jquery-mobile-document-ready-vs-page-events and http://jquerymobile.com/demos/1.2.0/docs/api/events.html
@@ -27,8 +5,7 @@ $(function() {
 
 /* If you include the id of a "page" in the pageinit, it will only run the script when the "page" is active */
 // $(document).bind('pageinit') {
-// alert ("pageinit complete");
-// $( document ).ready(function() {  // Used for websites other than mmobile
+// $( document ).ready(function() {  // Used for websites other than mobile
 
 $( document ).on( "pageinit", "#keno", function( event ) {
 	/* Keno page */
@@ -98,20 +75,26 @@ $( document ).on( "pageinit", "#geolocation", function( event ) {
 });
 
 // Random Excuse Generator
-$( document ).on( "pageinit", "#randomQuote", function( event ) {
-	var myRandom = Math.floor((Math.random()*9)+1);
-	alert("huh" + myRandom);
+$( document ).on( "pageinit", "#reg", function excuse( event ) {
+	var myRandom = Math.floor((Math.random()*11)+1);
 	var myQuotes = [];
 	myQuotes[0] = "Everything is on track";
 	myQuotes[1] = "Have an update for you Wednesday";
 	myQuotes[2] = "Paperwork is signed, lawyers need to finish up a few more details";
 	myQuotes[3] = "Let's meet at 10am tomorrow";
 	myQuotes[4] = "Moving the meeting to 3pm";
-	myQuotes[5] = "Let's meet at the pub to discuss";
+	myQuotes[5] = "Let's meet at the pub around 4pm";
 	myQuotes[6] = "Have an update by close of Business Friday";
 	myQuotes[7] = "We have another group that is interested. Literally on the phone with them now";
 	myQuotes[8] = "CSRH is due to close funding by close of business tomorrow";
 	myQuotes[9] = "Can't discuss the details right now, let's meet first thing tomorrow";
-	$('#quote').html(console.log( myQuotes[ myRandom ] ););
+	myQuotes[10] = "On track";
+	myQuotes[11] = "Call you on Saturday";
+	myQuotes[12] = "Bally has come back to us with an offer";
+	$("#excuse").text(myQuotes[ myRandom ]);
+	
+	$( "#newExcuse" ).bind( "click", function(event) {
+	  excuse();
+	});
 });
 
